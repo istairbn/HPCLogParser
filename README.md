@@ -5,18 +5,14 @@ HPC Server LogParser
 Ben.Newton@excelian.com
 24/12/2014
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 This program allows you to parse the logs provided by HPC Server 2012 SP1 or greater.
 It was designed to integrate with Logscape, so it can be set to run automatically or manually depending on depth and space requirements. 
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 System Requirements:
  - HPC Server 2012 SP 1 or greater must be run on the machine (needs the hpctrace command)
  - Java 1.6 or greater installed and configured
 
- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  
 File List:
  - HPCLogParserApp-1.0.bundle = The bundle file. This determines which services (if any) run and on which schedule and host. See Logscape Help for more on Bundle files.
@@ -27,7 +23,6 @@ File List:
  - parser.properties = The default settings used by the App - see below. 
  - HEADNODE.properties = An example of a batch style of Properties file. 
  
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Initial Setup
 
 Before running for the first time, you'll need to configure parser.properties - found in the lib folder. 
@@ -39,7 +34,6 @@ You can select which Properties file to use by executing the groovy script with 
 
 eg <script>logparser.groovy "HEADNODE.properties</script>"
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Modes and Options
 
