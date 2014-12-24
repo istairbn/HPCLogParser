@@ -7,9 +7,27 @@
 #
 #############################################################
 */
-import groovy.lang.Binding;
-import groovy.lang.Binding;
-import groovy.util.GroovyScriptEngine;
+import com.liquidlabs.common.LifeCycle;
+import com.liquidlabs.common.*
+
+println("Starting")
+
+Properties properties = new Properties()
+def props = args.length > 0 ? ".\\lib\\" + args[0] : ".\\lib\\parser.properties"
+def propertiesFile = new File(props)
+
+if (propertiesFile.exists()){
+	propertiesFile.withInputStream{
+    	properties.load(it)
+    	}
+	}
+
+else
+	{
+	println "No Properties File Present"
+	println System.getProperty("user.dir")
+	return 0
+	}
 
 def getInput(defaultValue){
 	value = new InputStreamReader(System.in).readLine()
@@ -24,22 +42,7 @@ def getInput(defaultValue){
 	return value
 }
 
-Properties properties = new Properties()
-def props = args.length > 0 ? args[0] : "./lib/parser.properties"
-def propertiesFile = new File(props)
-
-if (propertiesFile.exists()){
-propertiesFile.withInputStream{
-    properties.load(it)
-    }
-}
-
-else{
-println "No Properties File Present"
-println System.getProperty("user.dir")
-return 0
-}
-
+println (props)
 String mode = properties.runMode
 
 //Setting defaults (used in both modes)
@@ -58,7 +61,7 @@ def storage = properties.storage
 //Manual Mode
 if (mode=="1"){
 
-	println "\nWelcome to the HPC Server Log Parser"
+	println "\nWelcome to the Microsoft HPC Server Log Parser"
 	println "------------------------------------\n"
 	println "This is set to Manual Mode - if you wish to run this as an automated script, please edit the parser.properties file and set the default settings you require"
 	println "\nWould you like to parse all the available logs of a certain type or just a selection?"
@@ -69,7 +72,7 @@ if (mode=="1"){
 	method = getInput(ch1Def)
 
 	println " You have selected $method\n\n"
-	println "Please choose a Level\n"
+	println " Please choose a Level\n"
 
 	println"	1. Error and Critical only"
 	println"	2. Warning, Error, and Critical only"
@@ -191,7 +194,7 @@ if (mode=="1"){
 						filelist << file
 						}
 					}
-				}
+			}
 	}
 	
 	println"How would you like to store this data?"
@@ -206,8 +209,18 @@ if (mode=="1"){
 
 if(mode=="0"){
 
+	if(!source.exists()){
+		println "$source does not exist. Please edit the properties file"
+		System.exit(1)
+	}
+
+	if(!destination.exists()){
+		destination.mkdir()
+	}
+
 	if(method=="1"){
 		selection = properties.select1
+		println("Running all of Type $selection")
 	}
 
 	if(method=="2"){
@@ -219,6 +232,7 @@ if(mode=="0"){
 					//println currentAge
 						if(currentAge > maxAge){
 						filelist << file
+						println(filelist)
 						}
 					}
 				}
@@ -235,7 +249,6 @@ if (storage=="1"){
 			println "This has already run today."
 			System.exit(3)
 		}
-			
 }
 
 if (storage=="2"){
@@ -250,16 +263,18 @@ if (storage=="0"){
 		}
 	}
 }
+
 File newDest = new File(destination.toString() + "\\" + fname)
 destination = newDest
 if (!destination.exists()){
 	destination.mkdir()
+	println(destination)
 }
 
+//Running the commands with set parameters
 def command
 	
 	if(method=="1"){
-	
 	command = """ cmd /C hpctrace getlog $selection $level -d:$destination"""
 	println command
 	def proc = command.execute()
@@ -271,14 +286,15 @@ def command
 
 	if(method=="2"){
 
-	filelist.each(){ file ->
-	command = """cmd /C hpctrace parselog \"$file\" $level -d:$destination"""
-	println command
-	def proc = command.execute()
-	proc.waitFor()
-	println "return code: ${ proc.exitValue()}"
-	println "stderr: ${proc.err.text}"
-	println "stdout: ${proc.in.text}" 
-		}
+		filelist.each(){ file ->
+		command = """cmd /C hpctrace parselog \"$file\" $level -d:$destination"""
+		println command
+		def proc = command.execute()
+		proc.waitFor()
+		println "return code: ${ proc.exitValue()}"
+		println "stderr: ${proc.err.text}"
+		println "stdout: ${proc.in.text}" 
+			}
 	}
+println("Exiting")
 System.exit(0)
