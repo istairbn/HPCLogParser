@@ -61,19 +61,19 @@ storage [0,1,2] Determines how you wish to store the files.
 
 defaultLevel = [1,2,3,4] Determines the default level of parsing - that which will be used in run mode 0. 
 
-1 Error and Critical only
+	1 Error and Critical only
 
-2 Warning, Error, and Critical only
+	2 Warning, Error, and Critical only
 
-3 Info, Warning, Error and Critical only
+	3 Info, Warning, Error and Critical only
 
-4 All: Verbose, Info, Warning, Error, and Critical
+	4 All: Verbose, Info, Warning, Error, and Critical
  
 choiceMethod [1,2] - This determines whether you get all logs of a certain type, or a selection based on age.
 
-1. Type Selection. The simplest. Pick a type of log and they will all be parsed for you. If you have a lot of logs, this could take a while.
+	1. Type Selection. The simplest. Pick a type of log and they will all be parsed for you. If you have a lot of logs, this could take a while.
 	
-2. Time Selection. Select the type and the age, the script will only parse the ones that meet those criteria. 
+	2. Time Selection. Select the type and the age, the script will only parse the ones that meet those criteria. 
 
 days [0,1,2,3...] Any number. If using method 2, this is the age in days it will look for. 
 
