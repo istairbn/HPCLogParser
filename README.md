@@ -34,6 +34,7 @@ You can select which Properties file to use by executing the groovy script with 
 
 eg <script>logparser.groovy "HEADNODE.properties</script>"
 
+Once you are happy your Bundle and Properties files are correctly set up, zip all the files together in a file named HPCLogParserApp-1.0.zip and then deploy to your Logscape Environment.
 
 Modes and Options
 
