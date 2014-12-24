@@ -61,19 +61,19 @@ storage [0,1,2] Determines how you wish to store the files.
 
 defaultLevel = [1,2,3,4] Determines the default level of parsing - that which will be used in run mode 0. 
 
-	1 Error and Critical only
-	
-	2 Warning, Error, and Critical only
-	
-	3 Info, Warning, Error and Critical only
-	
-	4 All: Verbose, Info, Warning, Error, and Critical
+1 Error and Critical only
+
+2 Warning, Error, and Critical only
+
+3 Info, Warning, Error and Critical only
+
+4 All: Verbose, Info, Warning, Error, and Critical
  
 choiceMethod [1,2] - This determines whether you get all logs of a certain type, or a selection based on age.
 
-	1. Type Selection. The simplest. Pick a type of log and they will all be parsed for you. If you have a lot of logs, this could take a while.
+1. Type Selection. The simplest. Pick a type of log and they will all be parsed for you. If you have a lot of logs, this could take a while.
 	
-	2. Time Selection. Select the type and the age, the script will only parse the ones that meet those criteria. 
+2. Time Selection. Select the type and the age, the script will only parse the ones that meet those criteria. 
 
 days [0,1,2,3...] Any number. If using method 2, this is the age in days it will look for. 
 
@@ -81,16 +81,16 @@ select1 [mgmt] If using method 1, which files it will search for by default. The
 
 ["1":"mgmt","2":"sche","3":"sdm","4":"diag","5":"rept","6":"nmgr","7":"msvrmbrok","8":"mclt","9":"brok","10":"sdgm","11":"sess"]
 
-		1.  HPC Management Service"
-		2.  HPC Job Scheduler Service"
-		3.  HPC SDM Store Service"
-		4.  HPC Diagnostics Service"
-		5.  HPC Reporting Service"
-		6.  HPC Node Manager Service"	 
-		7.  HPC Monitoring Server Service"	 
-		8.  HPC Monitoring Client Service"
-		9.  HPC Broker Service"
-		10. HPC SOA Diag Mon Service"
-		11. HPC Session Service"
+	1.  HPC Management Service"
+	2.  HPC Job Scheduler Service"
+	3.  HPC SDM Store Service"
+	4.  HPC Diagnostics Service"
+	5.  HPC Reporting Service"
+	6.  HPC Node Manager Service"	 
+	7.  HPC Monitoring Server Service"	 
+	8.  HPC Monitoring Client Service"
+	9.  HPC Broker Service"
+	10. HPC SOA Diag Mon Service"
+	11. HPC Session Service"
 
 select2 [.bin] - The pattern to search for if using dates. .bin will get everything.
