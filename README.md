@@ -45,7 +45,7 @@ Set to runMode 1.
 Automatic Mode. The script requires no user interaction, it uses the settings pre-configured in the properties file.
 Set to runMode 0.
 
-	This determines whether it is going to run automatically using the defaults in the file [0] or whether you wish to run it manually and select your requirements as you go [1]. If you're running it as a regular script, set it to 0. 1 is designed for on the fly trouble shooting.
+This determines whether it is going to run automatically using the defaults in the file [0] or whether you wish to run it manually and select your requirements as you go [1]. If you're running it as a regular script, set it to 0. 1 is designed for on the fly trouble shooting.
 
 sourcePath [directory] - Where the logs are going to be found. Needs to point to the LogFiles directory of HPC. Please note, you must use forward slashes / instead of backwards otherwise you'll get some interesting errors.
 
@@ -53,11 +53,11 @@ destinationPath [directory] - Where the extracted files should be sent to. Same 
 
 storage [0,1,2] Determines how you wish to store the files.
 
-	0 = No Storage. The destination directory is wiped of ALL log files (but not folders or their contents) and the latest files are put in. Do NOT make destinationPath a sensistive directory if you are using this option. -- Designed for debugging and pulling data quickly.
+0 = No Storage. The destination directory is wiped of ALL log files (but not folders or their contents) and the latest files are put in. Do NOT make destinationPath a sensistive directory if you are using this option. -- Designed for debugging and pulling data quickly.
 	
-	1 = Once per Day. A subfolder is created based on the date and files are extracted there. If you try and run this again during batch, it will refuse. Designed for batching
+1 = Once per Day. A subfolder is created based on the date and files are extracted there. If you try and run this again during batch, it will refuse. Designed for batching
 	
-	2 = Every Run. A subfolder is created for every run.
+2 = Every Run. A subfolder is created for every run.
 
 defaultLevel = [1,2,3,4] Determines the default level of parsing - that which will be used in run mode 0. 
 
