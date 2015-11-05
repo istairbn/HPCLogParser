@@ -1,10 +1,8 @@
 /*
 ############################################################# 
 # HPC Log Parser
-# Ben.Newton@excelian.com
 # This App allows you to parse the logs found in HPC.
 # 04/12/2014
-#
 #############################################################
 */
 import com.liquidlabs.common.LifeCycle;
