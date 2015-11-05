@@ -1,10 +1,6 @@
 HPC Server LogParser
 ============
 
-HPC Server LogParser
-Ben.Newton@excelian.com
-24/12/2014
-
 This program allows you to parse the logs provided by HPC Server 2012 SP1 or greater.
 It was designed to integrate with Logscape, so it can be set to run automatically or manually depending on depth and space requirements. 
 
