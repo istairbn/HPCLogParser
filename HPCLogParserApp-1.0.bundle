@@ -1,15 +1,15 @@
 <Bundle name="HPCLogParserApp" version="1.0" system="false">
   <status>UNINSTALLED</status>
-  <owner>ben.newton@excelian.com</owner>
+  <owner>support@logscape.com</owner>
   <services>
 	<Service>
-	    <name>HPCParser</name>
+		<name>HPCParser</name>
 		<resourceSelection>type contains headnode</resourceSelection>
-	    <fork>true</fork>
-	    <background>true</background>
+		<fork>true</fork>
+		<background>true</background>
 		<instanceCount>-1</instanceCount>
 		<pauseSeconds>14400</pauseSeconds>
 		<script>logparser.groovy HEADNODE.properties</script>
-    </Service>
+	    	</Service>
 	</services>
 </Bundle>
